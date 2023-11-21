@@ -35,47 +35,25 @@ function generateQrCode($dt) {
 
 $arr = [
     [
-        'title' => "23",
-        'link' => "321312.dsadasdjk",
-        'code' => "12",
+        'link' => "awards.radioir.ru",
+        'code' => "N4Rja",
         'file' => ""
     ],
     [
-        'title' => "24",
-        'link' => "fdsf:dsadasd",
-        'code' => "13",
+        'link' => "awards.radioir.ru",
+        'code' => "N4Rja",
         'file' => ""
     ],
     [
-        'title' => "25",
-        'link' => "fdsfd432432",
-        'code' => "15",
+        'link' => "awards.radioir.ru",
+        'code' => "N4Rja",
         'file' => ""
     ],
     [
-        'title' => "26",
-        'link' => "gfdgfjj:432423",
-        'code' => "16",
+        'link' => "awards.radioir.ru",
+        'code' => "N4Rja",
         'file' => ""
     ],
-    [
-        'title' => "27",
-        'link' => "432423:fdsf",
-        'code' => "17",
-        'file' => ""
-    ],
-    [
-        'title' => "28",
-        'link' => "dsadas:kjjhk",
-        'code' => "18",
-        'file' => ""
-    ],
-    [
-        'title' => "29",
-        'link' => "321:dsada",
-        'code' => "19",
-        'file' => ""
-    ]
 
 ];
 
@@ -89,10 +67,12 @@ function getCell($item = null) {
     if ($item == null) {return;} ?>
     <div class="divTableCell">
         <div class="divContainer">
-            <p class="inner"><?php echo $item['title']; ?></p>
-            <img class="inner"  width="160" style="top: 50px;" src="images/<?php echo $item['file']; ?>" />
-            <p class="inner" style="top: 210px;" ><?php echo $item['link']; ?></p>
-            <p class="inner" style="top: 235px;" ><?php echo $item['code']; ?></p>
+            <p class="inner" style="top: 5px;">ПРОСКАНИПУЙТЕ КОД</p>
+            <img class="inner"  width="160" style="top: 40px;" src="images/<?php echo $item['file']; ?>" />
+            <p class="innerSmallText" style="top: 195px;" >ИЛИ ОТКРОЙТЕ ССЫЛКУ:</p>
+            <p class="innerSmallText" style="top: 215px;" ><?php echo $item['link']; ?></p>
+            <p class="innerSmallText" style="top: 235px;" >И ВВЕДИТЕ КОД:</p>
+            <p class="innerBigText" style="top: 225px;" ><?php echo $item['code']; ?></p>
             <img src="logo.png" width="230" style="position: flex;" />
         </div>
     </div>
