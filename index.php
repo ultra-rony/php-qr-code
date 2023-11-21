@@ -69,9 +69,9 @@ function getCell($item = null) {
         <div class="divContainer">
             <p class="inner" style="top: 5px;">ПРОСКАНИРУЙТЕ КОД</p>
             <img class="inner"  width="160" style="top: 40px;" src="images/<?php echo $item['file']; ?>" />
-            <p class="innerSmallText" style="top: 195px;" >ИЛИ ОТКРОЙТЕ ССЫЛКУ:</p>
+            <p class="innerSmallTextLight" style="top: 195px;" >ИЛИ ОТКРОЙТЕ ССЫЛКУ:</p>
             <p class="innerSmallText" style="top: 215px;" ><?php echo $item['link']; ?></p>
-            <p class="innerSmallText" style="top: 235px;" >И ВВЕДИТЕ КОД:</p>
+            <p class="innerSmallTextLight" style="top: 235px;" >И ВВЕДИТЕ КОД:</p>
             <p class="innerBigText" style="top: 225px;" ><?php echo $item['code']; ?></p>
             <img src="logo.png" width="230" style="position: flex;" />
         </div>
@@ -92,3 +92,15 @@ function getCell($item = null) {
         } ?>
     </div>
 </div>
+<script>
+import domtoimage from 'dom-to-image';
+
+capturar(){
+    var node = document.getElementById('capture');
+    var options = {quality: 1};
+
+    domtoimage.toJpeg(node, options).then((dataUrl) => {
+      console.log(dataUrl) //Image in base64 jpeg
+    });
+}
+</script>  
