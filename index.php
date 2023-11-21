@@ -67,7 +67,7 @@ function getCell($item = null) {
     if ($item == null) {return;} ?>
     <div class="divTableCell">
         <div class="divContainer">
-            <p class="inner" style="top: 5px;">ПРОСКАНИПУЙТЕ КОД</p>
+            <p class="inner" style="top: 5px;">ПРОСКАНИРУЙТЕ КОД</p>
             <img class="inner"  width="160" style="top: 40px;" src="images/<?php echo $item['file']; ?>" />
             <p class="innerSmallText" style="top: 195px;" >ИЛИ ОТКРОЙТЕ ССЫЛКУ:</p>
             <p class="innerSmallText" style="top: 215px;" ><?php echo $item['link']; ?></p>
