@@ -8,6 +8,17 @@
     font-style: normal;
     font-weight: 100;
 }
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('assets/fonts/RobotoMono-Bold.eot');
+    src: url('assets/fonts/RobotoMono-Bold.eot?#iefix') format('embedded-opentype'),
+         url('assets/fonts/RobotoMono-Bold.woff') format('woff'),
+         url('assets/fonts/RobotoMono-Bold.ttf') format('truetype');
+    font-style: normal;
+	font-weight: 100;
+}
+
 .divTable{
 	display: table;
 	width: 100%;
@@ -67,14 +78,12 @@
 }
 
 .innerBigText {
-	font-family: "RoadRadioThin";
+	font-family: "Roboto";
 	position: absolute;
 	color: white;
 	font-size: 40px;
 	font-weight: bold;
 }
-
-
 
 .divContainer {
     position: relative;
