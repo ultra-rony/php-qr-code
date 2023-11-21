@@ -92,15 +92,3 @@ function getCell($item = null) {
         } ?>
     </div>
 </div>
-<script>
-import domtoimage from 'dom-to-image';
-
-capturar(){
-    var node = document.getElementById('capture');
-    var options = {quality: 1};
-
-    domtoimage.toJpeg(node, options).then((dataUrl) => {
-      console.log(dataUrl) //Image in base64 jpeg
-    });
-}
-</script>  
