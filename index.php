@@ -40,17 +40,42 @@ $arr = [
         'file' => ""
     ],
     [
-        'link' => "awards.radioir.ru",
+        'link' => "http://awards.radioir.ru/",
         'code' => "N4Rja",
         'file' => ""
     ],
     [
-        'link' => "awards.radioir.ru",
+        'link' => "http://awards.radioir.ru/",
         'code' => "N4Rja",
         'file' => ""
     ],
     [
-        'link' => "awards.radioir.ru",
+        'link' => "http://awards.radioir.ru/",
+        'code' => "N4Rja",
+        'file' => ""
+    ],
+    [
+        'link' => "http://awards.radioir.ru/",
+        'code' => "N4Rja",
+        'file' => ""
+    ],
+    [
+        'link' => "http://awards.radioir.ru/",
+        'code' => "N4Rja",
+        'file' => ""
+    ],
+    [
+        'link' => "http://awards.radioir.ru/",
+        'code' => "N4Rja",
+        'file' => ""
+    ],
+    [
+        'link' => "http://awards.radioir.ru/",
+        'code' => "N4Rja",
+        'file' => ""
+    ],
+    [
+        'link' => "http://awards.radioir.ru/",
         'code' => "N4Rja",
         'file' => ""
     ],
@@ -67,12 +92,12 @@ function getCell($item = null) {
     if ($item == null) {return;} ?>
     <div class="divTableCell">
         <div class="divContainer">
-            <p class="inner" style="top: 5px;">ПРОСКАНИРУЙТЕ КОД</p>
+            <p class="inner" style="top: 5px; font-size: 15px;">ПРОСКАНИРУЙТЕ КОД</p>
             <img class="inner"  width="160" style="top: 40px;" src="images/<?php echo $item['file']; ?>" />
             <p class="innerSmallTextLight" style="top: 195px;" >ИЛИ ОТКРОЙТЕ ССЫЛКУ:</p>
-            <p class="innerSmallText" style="top: 210px; font-family: 'Roboto';" >awards.radioir.ru</p>
-            <p class="innerSmallTextLight" style="top: 235px;" >И ВВЕДИТЕ КОД:</p>
-            <p class="innerBigText" style="top: 225px;" ><?php echo $item['code']; ?></p>
+            <p class="innerSmallText" style="top: 208px; font-family: 'Roboto';" >awards.radioir.ru</p>
+            <p class="innerSmallTextLight" style="top: 230px;" >И ВВЕДИТЕ КОД:</p>
+            <p class="innerBigText" style="top: 210px;" ><?php echo $item['code']; ?></p>
             <img src="logo.png" width="230" style="position: flex;" />
         </div>
     </div>
@@ -92,3 +117,7 @@ function getCell($item = null) {
         } ?>
     </div>
 </div>
+
+<button onclick="window.print();" class="noPrint">
+    Сохранить
+</button>
