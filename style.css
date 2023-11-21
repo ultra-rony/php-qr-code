@@ -1,3 +1,13 @@
+/* Код для подключения шрифта в /css/stylename.css */
+@font-face { 
+    font-family: "RoadRadioThin";
+    src: url("assets/fonts/RoadRadioBold.eot");
+    src: url("assets/fonts/RoadRadioBold.eot?#iefix")format("embedded-opentype"),
+    url("assets/fonts/RoadRadioBold.woff") format("woff"),
+    url("assets/fonts/RoadRadioBold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 100;
+}
 .divTable{
 	display: table;
 	width: 100%;
@@ -27,15 +37,17 @@
 	display: table-row-group;
 }
 .inner {
-  position: absolute;
-  color: white;
-  font-size: 14px;
-  background: -webkit-linear-gradient(#ffedba, #c49641);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+	font-family: "RoadRadioThin";
+	position: absolute;
+	color: white;
+	font-size: 14px;
+	background: -webkit-linear-gradient(#ffedba, #c49641);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
 }
 
 .innerSmallText {
+	font-family: "RoadRadioThin";
 	position: absolute;
 	color: white;
 	font-size: 13px;
@@ -44,10 +56,22 @@
 	-webkit-text-fill-color: transparent;
 }
 
+.innerSmallTextLight {
+	font-family: "RoadRadioThin";
+	position: absolute;
+	color: white;
+	font-size: 13px;
+	background: -webkit-linear-gradient(#ffedba, #edd8af);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
 .innerBigText {
+	font-family: "RoadRadioThin";
 	position: absolute;
 	color: white;
 	font-size: 40px;
+	font-weight: bold;
 }
 
 
