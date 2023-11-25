@@ -1,123 +1,54 @@
-<link rel="stylesheet" href="/style.css">
-
-<?php
-
-require_once __DIR__ . '/phpqrcode/qrlib.php';
- 
-/* Генерация QR-кода во временный файл */
-
-
-function generateQrCode($dt) {
-    try {
-        $fileName = rand(100000, 999999) . '.png';
-        QRcode::png($dt['link'] . 'awards/2023/' . $dt['code'], __DIR__ . '/images/' . $fileName, 'M', 6, 2);
-        
-        $im = imagecreatefrompng(__DIR__ . 'images/' . $fileName);
-        $width = imagesx($im);
-        $height = imagesy($im);
-        
-        /* Цвет фона в RGB */
-        $bg_color = imageColorAllocate($im, 255, 145, 43);
-        
-        for ($x = 0; $x < $width; $x++) {
-            for ($y = 0; $y < $height; $y++) {
-                $color = imagecolorat($im, $x, $y);
-                if ($color == 0) {
-                    imageSetPixel($im, $x, $y, $bg_color);
-                }
-            }
-        }
-        return $fileName;
-    }catch (\Exception $e) {
-        die();
-    }
-}
-
-$arr = [
-    [
-        'link' => "http://awards.radioir.ru/",
-        'code' => "N4Rja",
-        'file' => ""
-    ],
-    [
-        'link' => "http://awards.radioir.ru/",
-        'code' => "N4Rja",
-        'file' => ""
-    ],
-    [
-        'link' => "http://awards.radioir.ru/",
-        'code' => "N4Rja",
-        'file' => ""
-    ],
-    [
-        'link' => "http://awards.radioir.ru/",
-        'code' => "N4Rja",
-        'file' => ""
-    ],
-    [
-        'link' => "http://awards.radioir.ru/",
-        'code' => "N4Rja",
-        'file' => ""
-    ],
-    [
-        'link' => "http://awards.radioir.ru/",
-        'code' => "N4Rja",
-        'file' => ""
-    ],
-    [
-        'link' => "http://awards.radioir.ru/",
-        'code' => "N4Rja",
-        'file' => ""
-    ],
-    [
-        'link' => "http://awards.radioir.ru/",
-        'code' => "N4Rja",
-        'file' => ""
-    ],
-    [
-        'link' => "http://awards.radioir.ru/",
-        'code' => "N4Rja",
-        'file' => ""
-    ],
-
-];
-
-
-foreach($arr as $key => $value) {
-    $arr[$key]['file'] = generateQrCode($value);
-}
-
-
-function getCell($item = null) { 
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://superal.github.io/canvas2image/canvas2image.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <?php require_once 'service.php'; ?>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <?php function getCell($item = null) { 
     if ($item == null) {return;} ?>
-    <div class="divTableCell">
-        <div class="divContainer">
-            <p class="inner" style="top: 5px; font-size: 15px;">ПРОСКАНИРУЙТЕ КОД</p>
-            <img class="inner"  width="160" style="top: 40px;" src="images/<?php echo $item['file']; ?>" />
-            <p class="innerSmallTextLight" style="top: 195px;" >ИЛИ ОТКРОЙТЕ ССЫЛКУ:</p>
-            <p class="innerSmallText" style="top: 208px; font-family: 'Roboto';" >awards.radioir.ru</p>
-            <p class="innerSmallTextLight" style="top: 230px;" >И ВВЕДИТЕ КОД:</p>
-            <p class="innerBigText" style="top: 210px;" ><?php echo $item['code']; ?></p>
-            <img src="logo.png" width="230" style="position: flex;" />
+    <div class="grid-item" style="background-image: url('logo.png'); background-size: width: 7cm; height: 9.9cm;">
+        <p class="inner" style="font-size: 15px;">ПРОСКАНИРУЙТЕ КОД</p>
+        <img width="160" style="top: 40px;" src="images/<?php echo $item['file']; ?>" />
+        <p class="inner" style="font-size: 13px;">ИЛИ ОТКРОЙТЕ ССЫЛКУ:</p>
+        <p class="innerV">awards.radioir.ru</p>
+        <p class="inner">И ВВЕДИТЕ КОД:</p>
+        <p class="innerCode"><?php echo $item['code']; ?></p>
+        <!-- <img src="logo.png" width="210" style="position: flex;" /> -->
+    </div>
+    <?php } ?>
+
+    <?php $modifiedArr = $arr; $num = count($arr) / 9;
+    for ($i = 0; $i < $num; $i++)  { ?>
+        <div class="wrapper">
+            <div class="block capture">
+                <div class="grid-container">
+                <?php
+                for ($pos = 0; $pos < 9; $pos++) {
+                    getCell($modifiedArr[$pos]);
+                    unset($modifiedArr[$pos]);
+                }
+                $modifiedArr = array_values($modifiedArr); ?>
+                </div>
+            </div>
+            <button class="btn">Скачать</button>
         </div>
-    </div>
-<?php } ?>
-
-
-<div class="divTable">
-    <div class="divTableBody">
-        <?php $modifiedArr = $arr; (int)$num = count($arr) / 3; for ($i = 0; $i < $num; $i++) {
-            ?><div class="divTableRow"><?php
-            for ($pos = 0; $pos < 3; $pos++) {
-                getCell($modifiedArr[$pos]);
-                unset($modifiedArr[$pos]);
-            }
-            $modifiedArr = array_values($modifiedArr);
-            ?></div><?php
-        } ?>
-    </div>
-</div>
-
-<button onclick="window.print();" class="noPrint">
-    Сохранить
-</button>
+    <?php } ?>
+</body>
+<script>
+$(".btn").click(function() {
+    var curent = $(this)
+    html2canvas(curent.parent().find('.capture'),{
+        onrendered: function(canvas) {
+            return Canvas2Image.saveAsPNG(canvas);
+        }
+    });
+});
+</script>
+</html>
